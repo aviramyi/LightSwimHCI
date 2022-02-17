@@ -19,4 +19,6 @@
     <string name="station_5">station 5</string>
     <string name="station_6">station 6</string>
     <string name="station_3">station 3</string>
+    <string name="order_of_stations">Order Of Stations:</string>
+    <string name="audio_feedback">Audio Feedback:</string>
 </resources>

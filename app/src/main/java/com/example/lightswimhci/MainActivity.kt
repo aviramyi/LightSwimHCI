@@ -1,21 +1,58 @@
 package com.example.lightswimhci
 
+import android.hardware.usb.UsbDevice
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import androidx.appcompat.app.AppCompatDelegate
 import com.example.lightswimhci.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
+import me.aflak.arduino.Arduino
+import me.aflak.arduino.ArduinoListener
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var arduino: Arduino
+    private lateinit var textView: TextView
+
+    override fun onStart() {
+        super.onStart()
+        arduino.setArduinoListener(object : ArduinoListener {
+            override fun onArduinoAttached(device: UsbDevice) {
+                arduino.open(device)
+                textView.setText("arduino has attached!")
+            }
+
+            override fun onArduinoDetached() {
+                // arduino detached from phone
+            }
+
+            override fun onArduinoMessage(bytes: ByteArray) {
+                val message = String(bytes)
+                // new message received from arduino
+            }
+
+            override fun onArduinoOpened() {
+                // you can start the communication
+                val str = "Hello Arduino !"
+                arduino.send(str.toByteArray())
+            }
+
+            override fun onUsbPermissionDenied() {
+                // Permission denied, display popup then
+                arduino.reopen()
+            }
+        })
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +71,10 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
+        textView = findViewById(R.id.textView);
+
+        arduino = Arduino(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -56,5 +97,16 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    fun display(message: String) {
+        runOnUiThread {
+            textView.append(
+                """
+            $message
+            
+            """.trimIndent()
+            )
+        }
     }
 }

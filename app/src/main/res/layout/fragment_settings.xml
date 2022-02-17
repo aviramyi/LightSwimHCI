@@ -51,37 +51,137 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <ToggleButton
-                android:id="@+id/toggleButton2"
-                android:layout_width="70dp"
-                android:layout_height="48dp"
-                android:background="@color/white"
-                android:checked="false"
-                android:text="ToggleButton"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            <RelativeLayout
+                android:layout_width="131dp"
+                android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/radio_button_station_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/text_station_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/radio_button_station_1"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/text_station_1" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="130dp"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_button_station_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/text_station_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/radio_button_station_2"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/station_2" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="107dp"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_button_station_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/text_station_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/radio_button_station_3"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/station_3" />
+
+            </RelativeLayout>
+
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+                <RadioButton
+                    android:id="@+id/radio_button_station_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/text_station_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/radio_button_station_4"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/station_4" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_button_station_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/text_station_5"
+                    android:text="@string/station_5"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/radio_button_station_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_button_station_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/text_station_6"
+                    android:text="@string/station_6"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/radio_button_station_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+        </TableRow>
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

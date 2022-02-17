@@ -13,4 +13,10 @@
     <string name="calibrate">Calibrate</string>
     <string name="end_session">End Session</string>
     <string name="active_stations">Active Stations:</string>
+    <string name="text_station_1">station 1</string>
+    <string name="station_2">station 2</string>
+    <string name="station_4">station 4</string>
+    <string name="station_5">station 5</string>
+    <string name="station_6">station 6</string>
+    <string name="station_3">station 3</string>
 </resources>

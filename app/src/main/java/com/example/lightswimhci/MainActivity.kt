@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
 
-        arduinoManager = ArduinoManager.getInstance(this);
+        arduinoManager = ArduinoManager.getInstance(this)
 
     }
 

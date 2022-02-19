@@ -22,7 +22,7 @@ class MainFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
@@ -37,17 +37,17 @@ class MainFragment : Fragment() {
         }
 
         binding.buttonStartSession.setOnClickListener {
-            var isSessionStarted = (binding.buttonStartSession.text != getString(R.string.end_session));
+            val isSessionStarted = (binding.buttonStartSession.text != getString(R.string.end_session))
             if (!isSessionStarted) {
                 binding.buttonStartSession.text = getString(R.string.start_session)
-                binding.buttonSettings.visibility = View.VISIBLE;
-                binding.buttonCalibrate.visibility = View.VISIBLE;
-                binding.textCalibrate.visibility = View.VISIBLE;
+                binding.buttonSettings.visibility = View.VISIBLE
+                binding.buttonCalibrate.visibility = View.VISIBLE
+                binding.textCalibrate.visibility = View.VISIBLE
             } else {
                 binding.buttonStartSession.text = getString(R.string.end_session)
-                binding.buttonSettings.visibility = View.INVISIBLE;
-                binding.buttonCalibrate.visibility = View.INVISIBLE;
-                binding.textCalibrate.visibility = View.INVISIBLE;
+                binding.buttonSettings.visibility = View.INVISIBLE
+                binding.buttonCalibrate.visibility = View.INVISIBLE
+                binding.textCalibrate.visibility = View.INVISIBLE
             }
             ArduinoManager.getInstance().arduino.send(("!$isSessionStarted").toByteArray())
         }

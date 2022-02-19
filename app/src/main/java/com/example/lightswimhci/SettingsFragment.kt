@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.lightswimhci.databinding.FragmentSettingsBinding
 
@@ -17,16 +16,14 @@ enum class AudioFeedback {
     INSTRUMENTAL, VERBAL, AUDIOBOOK, NONE
 }
 
-class Settings {
-    final var DELIMITER = "$"
+class Settings() {
+    private var delimiter = "$"
 
     var activeStations: BooleanArray = booleanArrayOf(false, false, false, false, false, false)
     var orderOfStations: StationOrder = StationOrder.CIRCULAR
     var audioFeedback: AudioFeedback = AudioFeedback.INSTRUMENTAL
 
-    constructor()
-    {
-        var num = 0;
+    init {
     }
     fun Serialize() : String {
         var result = "$"
@@ -37,9 +34,9 @@ class Settings {
             }
         }
 
-        result += DELIMITER
+        result += delimiter
         result += orderOfStations.ordinal.toString()
-        result += DELIMITER
+        result += delimiter
         result += audioFeedback.ordinal.toString()
 
         return result
@@ -62,7 +59,7 @@ class SettingsFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
@@ -99,22 +96,22 @@ class SettingsFragment : Fragment() {
 
     fun extractSettings() : ByteArray{
         if (binding.radioButtonStation1.isChecked){
-            savedSettings.activeStations[0] = true;
+            savedSettings.activeStations[0] = true
         }
         if (binding.radioButtonStation2.isChecked){
-            savedSettings.activeStations[1] = true;
+            savedSettings.activeStations[1] = true
         }
         if (binding.radioButtonStation3.isChecked){
-            savedSettings.activeStations[2] = true;
+            savedSettings.activeStations[2] = true
         }
         if (binding.radioButtonStation4.isChecked){
-            savedSettings.activeStations[3] = true;
+            savedSettings.activeStations[3] = true
         }
         if (binding.radioButtonStation5.isChecked){
-            savedSettings.activeStations[4] = true;
+            savedSettings.activeStations[4] = true
         }
         if (binding.radioButtonStation6.isChecked){
-            savedSettings.activeStations[5] = true;
+            savedSettings.activeStations[5] = true
         }
 
         savedSettings.orderOfStations = StationOrder.valueOf(binding.spinnerOrderOfStations.selectedItem.toString().uppercase())

@@ -37,7 +37,8 @@ class MainFragment : Fragment() {
         }
 
         binding.buttonStartSession.setOnClickListener {
-            if (binding.buttonStartSession.text == getString(R.string.end_session)) {
+            var isSessionStarted = (binding.buttonStartSession.text != getString(R.string.end_session));
+            if (!isSessionStarted) {
                 binding.buttonStartSession.text = getString(R.string.start_session)
                 binding.buttonSettings.visibility = View.VISIBLE;
                 binding.buttonCalibrate.visibility = View.VISIBLE;
@@ -48,6 +49,7 @@ class MainFragment : Fragment() {
                 binding.buttonCalibrate.visibility = View.INVISIBLE;
                 binding.textCalibrate.visibility = View.INVISIBLE;
             }
+            ArduinoManager.getInstance().arduino.send(("!$isSessionStarted").toByteArray())
         }
     }
 

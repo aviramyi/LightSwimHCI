@@ -25,7 +25,7 @@ class Settings {
     var audioFeedback: AudioFeedback = AudioFeedback.INSTRUMENTAL
 
     fun Serialize() : String {
-        var result = ""
+        var result = "$"
 
         for (i in 0..5) {
             if (activeStations[i]) {

@@ -24,6 +24,10 @@ class Settings {
     var orderOfStations: StationOrder = StationOrder.CIRCULAR
     var audioFeedback: AudioFeedback = AudioFeedback.INSTRUMENTAL
 
+    constructor()
+    {
+        var num = 0;
+    }
     fun Serialize() : String {
         var result = "$"
 
@@ -42,6 +46,7 @@ class Settings {
     }
 }
 
+private var savedSettings: Settings = Settings()
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -49,7 +54,6 @@ class Settings {
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
-    private var savedSettings: Settings = Settings()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -68,10 +72,24 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fillFormWithSavedSettings()
+
         binding.buttonSaveSettings.setOnClickListener {
             ArduinoManager.getInstance().arduino.send(extractSettings())
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
+    }
+
+    fun fillFormWithSavedSettings() {
+        binding.radioButtonStation1.isChecked = savedSettings.activeStations[0]
+        binding.radioButtonStation2.isChecked = savedSettings.activeStations[1]
+        binding.radioButtonStation3.isChecked = savedSettings.activeStations[2]
+        binding.radioButtonStation4.isChecked = savedSettings.activeStations[3]
+        binding.radioButtonStation5.isChecked = savedSettings.activeStations[4]
+        binding.radioButtonStation6.isChecked = savedSettings.activeStations[5]
+
+        binding.spinnerOrderOfStations.setSelection(savedSettings.orderOfStations.ordinal)
+        binding.spinnerAudioFeedback.setSelection(savedSettings.audioFeedback.ordinal)
     }
 
     override fun onDestroyView() {
@@ -107,3 +125,4 @@ class SettingsFragment : Fragment() {
 
 
 }
+

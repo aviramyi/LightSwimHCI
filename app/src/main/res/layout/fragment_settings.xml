@@ -10,13 +10,13 @@
         android:id="@+id/textview_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintBottom_toTopOf="@id/button_saveSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_second"
+        android:id="@+id/button_saveSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/saveSettings"
@@ -64,7 +64,7 @@
         android:text="@string/audio_feedback"
         android:textColor="#D60000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_second"
+        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:layout_width="217dp"
         android:layout_height="24dp"
         android:entries="@array/audio_feedback_array"
-        app:layout_constraintBottom_toTopOf="@+id/button_second"
+        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_audio_feedback"
@@ -89,7 +89,7 @@
         android:layout_height="140dp"
         android:layout_marginBottom="180dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button_second"
+        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +104,7 @@
                 android:layout_width="122dp"
                 android:layout_height="wrap_content">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radio_button_station_1"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
@@ -124,7 +124,7 @@
                 android:layout_width="122dp"
                 android:layout_height="wrap_content">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radio_button_station_2"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
@@ -144,7 +144,7 @@
                 android:layout_width="122dp"
                 android:layout_height="wrap_content">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radio_button_station_3"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
@@ -171,7 +171,7 @@
                 android:layout_width="122dp"
                 android:layout_height="match_parent">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radio_button_station_4"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
@@ -191,7 +191,7 @@
                 android:layout_width="122dp"
                 android:layout_height="wrap_content">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radio_button_station_5"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
@@ -211,7 +211,7 @@
                 android:layout_width="122dp"
                 android:layout_height="wrap_content">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radio_button_station_6"
                     android:layout_width="34dp"
                     android:layout_height="35dp"

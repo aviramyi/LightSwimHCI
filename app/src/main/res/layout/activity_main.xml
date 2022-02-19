@@ -35,14 +35,4 @@
         app:layout_anchorGravity="center"
         app:popupTheme="@style/Theme.LightSwimHCI.PopupOverlay" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="358dp"
-        android:layout_height="154dp"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textAllCaps="true"
-        android:textColor="#E1BEE7"
-        android:textSize="60sp" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -24,4 +24,8 @@
         </activity>
     </application>
 
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" />
+
 </manifest>

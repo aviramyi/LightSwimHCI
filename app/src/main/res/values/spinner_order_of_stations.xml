@@ -3,7 +3,6 @@
     <string-array name="order_of_stations_array">
         <item>Circular</item>
         <item>Random</item>
-        <item>Manual</item>
         <item>Opposite</item>
     </string-array>
 </resources>

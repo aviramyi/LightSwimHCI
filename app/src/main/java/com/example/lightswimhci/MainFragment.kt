@@ -1,10 +1,13 @@
 package com.example.lightswimhci
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.lightswimhci.databinding.FragmentMainBinding
 
@@ -18,11 +21,18 @@ class MainFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var alertDialog: AlertDialog
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
+
+        alertDialog = AlertDialog.Builder(context).create()
+        alertDialog.setTitle("Calibration")
+        alertDialog.setMessage("Calibrated successfully!")
+        alertDialog.setButton("OK", DialogInterface.OnClickListener(function =
+        { dialog: DialogInterface, which: Int -> }))
 
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
@@ -50,6 +60,11 @@ class MainFragment : Fragment() {
                 binding.textCalibrate.visibility = View.INVISIBLE
             }
             ArduinoManager.getInstance().arduino.send(("!$isSessionStarted").toByteArray())
+        }
+
+        binding.buttonCalibrate.setOnClickListener{
+            ArduinoManager.getInstance().arduino.send("@".toByteArray())
+            alertDialog.show()
         }
     }
 

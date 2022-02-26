@@ -9,11 +9,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.lightswimhci.databinding.FragmentSettingsBinding
 
 enum class StationOrder {
-    CIRCULAR, RANDOM, MANUAL, OPPOSITE
+    CIRCULAR, RANDOM, OPPOSITE
 }
 
 enum class AudioFeedback {
-    INSTRUMENTAL, VERBAL, AUDIOBOOK, NONE
+    INSTRUMENTAL, VERBAL, JOKES, AUDIOBOOK, NONE
 }
 
 class Settings() {
@@ -26,7 +26,7 @@ class Settings() {
     init {
     }
     fun Serialize() : String {
-        var result = "$"
+        var result = "";
 
         for (i in 0..5) {
             if (activeStations[i]) {
@@ -77,7 +77,7 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    fun fillFormWithSavedSettings() {
+    private fun fillFormWithSavedSettings() {
         binding.radioButtonStation1.isChecked = savedSettings.activeStations[0]
         binding.radioButtonStation2.isChecked = savedSettings.activeStations[1]
         binding.radioButtonStation3.isChecked = savedSettings.activeStations[2]
@@ -94,7 +94,7 @@ class SettingsFragment : Fragment() {
         _binding = null
     }
 
-    fun extractSettings() : ByteArray{
+    private fun extractSettings() : ByteArray{
         if (binding.radioButtonStation1.isChecked){
             savedSettings.activeStations[0] = true
         }

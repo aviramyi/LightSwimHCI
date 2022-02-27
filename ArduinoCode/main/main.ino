@@ -39,22 +39,26 @@ void setup() {
     activeStation = 0;
     soundPlayer = new SoundPlayer();
     calibrate();
+
+//    runningWOPhone();
 }
 
 void loop() {  
   if (Serial.available() > 0) {
    readOptions(); 
   }
-
+  
   if (isActiveSession){
     RunSession();
   }
-  Serial.println("active station");
-  Serial.println(activeStation);
-  Serial.println("Zero distances");
-  Serial.println(distancesFromSurfaces[0]);
-  Serial.println(distancesFromSurfaces[1]);
-  Serial.println(distancesFromSurfaces[2]);
+//  Serial.println("active station");
+//  Serial.println(activeStation);
+//  Serial.println("Zero distances");
+//  Serial.println(distancesFromSurfaces[0]);
+//  Serial.println(distancesFromSurfaces[1]);
+//  Serial.println(distancesFromSurfaces[2]);
+  Serial.println(getDistance(0));
+    
 }
 
 void RunSession() { 
@@ -63,8 +67,9 @@ void RunSession() {
   }
   
   int distance = getDistance(activeStation);
+  Serial.println("Distance Of Active Station: @@@@@@");
   Serial.println(distance);
-  int threshold = distancesFromSurfaces[activeStation] - 5;
+  int threshold = distancesFromSurfaces[activeStation] - 10;
   if (distance <= threshold && distance >= 0){
     soundPlayer->playSuccessIndication(piezoPin, ledsPin[activeStation], audioFeedback);
     lightOff(activeStation);
@@ -73,11 +78,21 @@ void RunSession() {
   }
 }
 
+void runningWOPhone(){
+  numOfEnabledStations = 2;
+  enabledStations[0] = 0;
+  enabledStations[1] = 1;
+  isActiveSession = true;
+  activeStation = enabledStations[0];
+  lightOn(activeStation);
+}
+
 void calibrate() {
   for (int i = 0; i < NUM_OF_STATIONS; i++){
     distancesFromSurfaces[i] = getDistance(i);
   }
-}
+  distancesFromSurfaces[0] = distancesFromSurfaces[2]; 
+} 
 
 int getNextActiveStation() {
   switch (stationOrder) {
@@ -147,8 +162,8 @@ void readOptions() {
     String curString = String(&data[1]);
     isActiveSession = (curString == "true");
     if (isActiveSession) {
-      lightOn(activeStation);
       activeStation = enabledStations[0];
+      lightOn(activeStation);
     } else {
       lightOff(activeStation);
     }

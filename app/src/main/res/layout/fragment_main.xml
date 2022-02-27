@@ -10,7 +10,7 @@
         android:id="@+id/textview_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/short_description"
+        android:text="@string/arduino_not_detected"
         app:layout_constraintBottom_toTopOf="@id/button_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +45,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="44dp"
         android:contentDescription="@string/calibrate"
-        android:src="@android:drawable/ic_menu_manage"
+        android:src="@drawable/ic_action_name"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

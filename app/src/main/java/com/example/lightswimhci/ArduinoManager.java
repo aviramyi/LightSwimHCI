@@ -1,6 +1,9 @@
 package com.example.lightswimhci;
 import android.content.Context;
 import android.hardware.usb.UsbDevice;
+import android.os.AsyncTask;
+import android.os.Handler;
+import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
 import me.aflak.arduino.Arduino;
@@ -13,7 +16,7 @@ public final class ArduinoManager {
 
     private final Arduino arduino;
 
-    private ArduinoManager(Context context) {
+    private ArduinoManager(Context context, TextView statusText) {
         arduino = new Arduino(context);
         arduino.addVendorId(6790);
         arduino.setBaudRate(9600);
@@ -21,11 +24,14 @@ public final class ArduinoManager {
             @Override
             public void onArduinoAttached(UsbDevice device) {
                 arduino.open(device);
+                statusText.setText(R.string.arudino_detected);
             }
 
             @Override
             public void onArduinoDetached() {
                 // arduino detached from phone
+                statusText.setText(R.string.arduino_not_detected);
+                statusText.invalidate();
             }
 
             @Override
@@ -49,6 +55,13 @@ public final class ArduinoManager {
         });
     }
 
+    public static boolean isOpen(){
+        if (instance == null){
+            return false;
+        }
+        return instance.arduino.isOpened();
+    }
+
     public static ArduinoManager getInstance(){
         if (instance == null) {
             return null;
@@ -57,9 +70,9 @@ public final class ArduinoManager {
     }
 
 
-    public static ArduinoManager getInstance(Context context){
+    public static ArduinoManager getInstance(Context context, TextView textToUpdate){
         if (instance == null) {
-            instance = new ArduinoManager(context);
+            instance = new ArduinoManager(context, textToUpdate);
         }
         return instance;
     }

@@ -4,16 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#2196F3"
     tools:context=".SettingsFragment">
-
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_saveSettings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_saveSettings"
@@ -22,79 +14,21 @@
         android:text="@string/saveSettings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
-
-    <TextView
-        android:id="@+id/text_activeStations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginBottom="38dp"
-        android:text="@string/active_stations"
-        android:textColor="#D60000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
-
-    <TextView
-        android:id="@+id/text_order_of_stations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:layout_marginBottom="453dp"
-        android:text="@string/order_of_stations"
-        android:textColor="#D60000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_activeStations" />
-
-    <TextView
-        android:id="@+id/text_audio_feedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:text="@string/audio_feedback"
-        android:textColor="#D60000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner_order_of_stations"
-        app:layout_constraintVertical_bias="0.034" />
-
-    <Spinner
-        android:id="@+id/spinner_audio_feedback"
-        android:layout_width="217dp"
-        android:layout_height="24dp"
-        android:entries="@array/audio_feedback_array"
-        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_audio_feedback"
-        app:layout_constraintVertical_bias="0.169"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintVertical_bias="0.866" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="368dp"
         android:layout_height="140dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginTop="120dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -108,7 +42,8 @@
                     android:id="@+id/radio_button_station_1"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:buttonTint="@color/color_pool_dark" />
 
                 <TextView
                     android:id="@+id/text_station_1"
@@ -116,7 +51,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/radio_button_station_1"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/text_station_1" />
+                    android:text="@string/text_station_1"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -128,7 +64,8 @@
                     android:id="@+id/radio_button_station_2"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:buttonTint="@color/color_pool_dark" />
 
                 <TextView
                     android:id="@+id/text_station_2"
@@ -136,7 +73,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/radio_button_station_2"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/station_2" />
+                    android:text="@string/station_2"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -148,7 +86,8 @@
                     android:id="@+id/radio_button_station_3"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:buttonTint="@color/color_pool_dark" />
 
                 <TextView
                     android:id="@+id/text_station_3"
@@ -156,7 +95,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/radio_button_station_3"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/station_3" />
+                    android:text="@string/station_3"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -175,7 +115,8 @@
                     android:id="@+id/radio_button_station_4"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:buttonTint="@color/color_pool_dark" />
 
                 <TextView
                     android:id="@+id/text_station_4"
@@ -183,7 +124,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/radio_button_station_4"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/station_4" />
+                    android:text="@string/station_4"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -195,7 +137,8 @@
                     android:id="@+id/radio_button_station_5"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:buttonTint="@color/color_pool_dark" />
 
                 <TextView
                     android:id="@+id/text_station_5"
@@ -203,7 +146,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/radio_button_station_5"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/station_5" />
+                    android:text="@string/station_5"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -215,7 +159,8 @@
                     android:id="@+id/radio_button_station_6"
                     android:layout_width="34dp"
                     android:layout_height="35dp"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:buttonTint="@color/color_pool_dark" />
 
                 <TextView
                     android:id="@+id/text_station_6"
@@ -223,23 +168,104 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/radio_button_station_6"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/station_6" />
+                    android:text="@string/station_6"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
         </TableRow>
     </TableLayout>
 
-    <Spinner
-        android:id="@+id/spinner_order_of_stations"
-        android:layout_width="217dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="421dp"
-        android:entries="@array/order_of_stations_array"
+    <TextView
+        android:id="@+id/text_activeStations"
+        android:layout_width="149dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/active_stations"
+        android:textAlignment="center"
+        android:textColor="@color/color_pool_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814" />
+
+    <TextView
+        android:id="@+id/text_order_of_stations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_of_stations"
+        android:textColor="@color/color_pool_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/layout_order_of_stations"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RelativeLayout
+        android:id="@+id/layout_order_of_stations"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
+        android:background="@drawable/spinner_outline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_order_of_stations"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.467">
+
+        <Spinner
+            android:id="@+id/spinner_order_of_stations"
+            android:popupBackground="@color/color_pool_dark"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dropDownWidth="212dp"
+            android:entries="@array/order_of_stations_array"
+            app:layout_marginBaseline="@dimen/fab_margin" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="96dp"
+        android:background="@drawable/spinner_outline"
+        app:layout_constraintBottom_toTopOf="@+id/button_saveSettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Spinner
+            android:popupBackground="@color/color_pool_dark"
+            android:id="@+id/spinner_audio_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dropDownWidth="212dp"
+            android:backgroundTint="#3F51B5"
+            android:entries="@array/audio_feedback_array"
+            app:layout_marginBaseline="@dimen/fab_margin" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/text_audio_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/audio_feedback"
+        android:textColor="@color/color_pool_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_order_of_stations"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

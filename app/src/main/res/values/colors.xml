@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="color_off">#535353</color>
     <color name="color_on">#FFEC6B</color>
+    <color name="color_pool_dark">#FF024373</color>
 </resources>

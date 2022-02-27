@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.lightswimhci.MainFragment"
-        android:label="@string/first_fragment_label"
+        android:label=""
         tools:layout="@layout/fragment_main">
 
         <action
@@ -18,11 +18,12 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.lightswimhci.SettingsFragment"
-        android:label="@string/second_fragment_label"
+        android:label=""
         tools:layout="@layout/fragment_settings">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+
 </navigation>

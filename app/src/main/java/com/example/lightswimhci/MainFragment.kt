@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.ObservableField
 import androidx.navigation.fragment.findNavController
 import com.example.lightswimhci.databinding.FragmentMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -39,6 +41,13 @@ class MainFragment : Fragment() {
 
     }
 
+    private fun showNotConnectedSnackbar(){
+        view?.let {
+            Snackbar.make(it, "Arduino not connected", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -48,6 +57,10 @@ class MainFragment : Fragment() {
 
         binding.buttonStartSession.setOnClickListener {
             val isSessionStarted = (binding.buttonStartSession.text != getString(R.string.end_session))
+            if (!ArduinoManager.isOpen()){
+                showNotConnectedSnackbar()
+                return@setOnClickListener
+            }
             if (!isSessionStarted) {
                 binding.buttonStartSession.text = getString(R.string.start_session)
                 binding.buttonSettings.visibility = View.VISIBLE
@@ -63,6 +76,10 @@ class MainFragment : Fragment() {
         }
 
         binding.buttonCalibrate.setOnClickListener{
+            if (!ArduinoManager.isOpen()){
+                showNotConnectedSnackbar()
+                return@setOnClickListener
+            }
             ArduinoManager.getInstance().arduino.send("@".toByteArray())
             alertDialog.show()
         }

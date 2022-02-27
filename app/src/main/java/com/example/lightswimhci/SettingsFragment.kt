@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.lightswimhci.databinding.FragmentSettingsBinding
+import com.google.android.material.snackbar.Snackbar
 
 enum class StationOrder {
     CIRCULAR, RANDOM, OPPOSITE
@@ -16,7 +17,7 @@ enum class AudioFeedback {
     INSTRUMENTAL, VERBAL, JOKES, AUDIOBOOK, NONE
 }
 
-class Settings() {
+class Settings {
     private var delimiter = "$"
 
     var activeStations: BooleanArray = booleanArrayOf(false, false, false, false, false, false)
@@ -72,8 +73,18 @@ class SettingsFragment : Fragment() {
         fillFormWithSavedSettings()
 
         binding.buttonSaveSettings.setOnClickListener {
+            if(!ArduinoManager.isOpen()){
+                showNotConnectedSnackbar()
+            }
             ArduinoManager.getInstance().arduino.send(extractSettings())
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+        }
+    }
+
+    private fun showNotConnectedSnackbar(){
+        view?.let {
+            Snackbar.make(it, "Arduino not connected", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
         }
     }
 

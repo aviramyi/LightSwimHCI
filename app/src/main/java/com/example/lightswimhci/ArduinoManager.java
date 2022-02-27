@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.jetbrains.annotations.NotNull;
 import me.aflak.arduino.Arduino;
 import me.aflak.arduino.ArduinoListener;
@@ -16,7 +18,7 @@ public final class ArduinoManager {
 
     private final Arduino arduino;
 
-    private ArduinoManager(Context context, TextView statusText) {
+    private ArduinoManager(Context context, Snackbar snackbar) {
         arduino = new Arduino(context);
         arduino.addVendorId(6790);
         arduino.setBaudRate(9600);
@@ -24,14 +26,15 @@ public final class ArduinoManager {
             @Override
             public void onArduinoAttached(UsbDevice device) {
                 arduino.open(device);
-                statusText.setText(R.string.arudino_detected);
+                snackbar.setText("Arduino Connected!");
+                snackbar.show();
             }
 
             @Override
             public void onArduinoDetached() {
                 // arduino detached from phone
-                statusText.setText(R.string.arduino_not_detected);
-                statusText.invalidate();
+                snackbar.setText("Arduino Disconnected!");
+                snackbar.show();
             }
 
             @Override
@@ -70,9 +73,9 @@ public final class ArduinoManager {
     }
 
 
-    public static ArduinoManager getInstance(Context context, TextView textToUpdate){
+    public static ArduinoManager getInstance(Context context, Snackbar snackbar){
         if (instance == null) {
-            instance = new ArduinoManager(context, textToUpdate);
+            instance = new ArduinoManager(context, snackbar);
         }
         return instance;
     }

@@ -24,4 +24,5 @@
     <string name="about">About</string>
     <string name="arduino_not_detected">Arduino not detected</string>
     <string name="arudino_detected">Arduino is connected successfully!</string>
+    <string name="short_instructions">After setting desired settings, <n>\n\t\t\t\t</n>press "Start Session"</string>
 </resources>

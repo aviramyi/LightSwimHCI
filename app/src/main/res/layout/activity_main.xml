@@ -15,7 +15,10 @@
         app:loop="true"
         app:path_or_url="background_video.mp4"
         app:sound="true"
-        app:video_gravity="centerCrop" />
+        app:video_gravity="centerCrop" >
+
+        <include layout="@layout/content_main" />
+    </egolabsapps.basicodemine.videolayout.VideoLayout>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -24,8 +27,6 @@
         android:theme="@style/Theme.LightSwimHCI.AppBarOverlay">
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_main" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -56,9 +57,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="TODO"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:contentDescription="fab_email"
         app:rippleColor="#FFFFFF"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 

@@ -6,10 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
+import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.databinding.ObservableField
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -72,8 +72,9 @@ Using visual and audible feedback, the patient is encouraged to swim between sta
             emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi! I would you to know about:")
             startActivity(emailIntent)
         }
-
-        arduinoManager = ArduinoManager.getInstance(this, findViewById<TextView>(R.id.textview_first))
+        arduinoManager = ArduinoManager.getInstance(this,
+            Snackbar.make(findViewById<View>(android.R.id.content).rootView, "Arduino not connected", Snackbar.LENGTH_LONG)
+                .setAction("Action", null))
 
     }
 

@@ -10,7 +10,9 @@
         android:id="@+id/textview_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/arduino_not_detected"
+        android:elegantTextHeight="true"
+        android:text="@string/short_instructions"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@id/button_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,10 +42,10 @@
 
     <ImageButton
         android:id="@+id/button_calibrate"
-        android:layout_width="75dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="44dp"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="40dp"
         android:contentDescription="@string/calibrate"
         android:src="@drawable/ic_action_name"
         android:background="@android:color/transparent"
@@ -56,9 +58,10 @@
         android:id="@+id/text_calibrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="26dp"
         android:text="@string/calibrate"
+        android:textColor="@color/color_calibrate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

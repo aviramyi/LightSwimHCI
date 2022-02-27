@@ -3,11 +3,12 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_200">#C37836</color> // Changed from teal to orange for fab
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FFFFFF</color> // Changed from black to white for fab
     <color name="white">#FFFFFFFF</color>
     <color name="color_off">#535353</color>
     <color name="color_on">#FFEC6B</color>
     <color name="color_pool_dark">#FF024373</color>
+    <color name="color_calibrate">#C37836</color>
 </resources>

@@ -40,7 +40,7 @@ void setup() {
     soundPlayer = new SoundPlayer();
     calibrate();
 
-//    runningWOPhone();
+    // runningWOPhone(); // a method for testing
 }
 
 void loop() {  
@@ -57,7 +57,7 @@ void loop() {
 //  Serial.println(distancesFromSurfaces[0]);
 //  Serial.println(distancesFromSurfaces[1]);
 //  Serial.println(distancesFromSurfaces[2]);
-  Serial.println(getDistance(0));
+//  Serial.println(getDistance(0));
     
 }
 
